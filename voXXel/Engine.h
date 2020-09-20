@@ -1,9 +1,13 @@
 #pragma once
 #include "Includes.h"
-#include "Console.h"
+#include "Scene.h"
+
+class Scene;
 
 class Engine {
 private: // Variables
+
+
 	// Engine variables
 	unsigned int _frame = 0;
 	unsigned int _FPSEstimation = 0;
@@ -13,9 +17,6 @@ private: // Variables
 	float _deltaTime;
 	float _currentTime;
 	float _oldTime;
-
-	// Rendering variables
-	glm::mat4 _projection;
 
 	// Window variables
 	std::string _title;
@@ -33,6 +34,7 @@ private: // Variables
 
 	// Other variables
 	Console* _console;
+	Scene* _scene;
 
 public:
 	Engine(unsigned int w, unsigned int h, std::string title, bool fullscreen);
@@ -40,8 +42,12 @@ public:
 
 	void update();
 
+	// Getters
 	float getDeltaTime();
 	GLFWwindow* getWindow();
+	glm::vec2 getWindowDimensions();
+	Console* getConsole();
+	Scene* getScene();
 
 	void shutdown();
 };

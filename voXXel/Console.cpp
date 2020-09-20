@@ -13,15 +13,16 @@ Console::Console(int debugMode, std::string fileName) {
 		*_outFile << "<!DOCTYPE html>";
 		*_outFile << "<html lang=\"en\">";
 		*_outFile << "<head>";
-		*_outFile << "<style>body {background-color: #000000; color: #FFFFFF}", // CSS
-		*_outFile << "button {border: 1px solid #FF0000;background-color: #000000;color: #FFFFFF;padding: 1em;width: 100px;height: 100%;margin-left: 2em}";
-		*_outFile << "div {border: 1px solid #313131; border-radius: 1rem; box-sizing: border-box; margin:  0.5em 0;}";
+		*_outFile << "<style>body {background-color: #393939; color: #FFFFFF}", // CSS
+		//* _outFile << "button {border: 1px solid #FF0000;background-color: #000000;color: #FFFFFF;padding: 1em;width: 100px;height: 100%; margin: 0.5rem 0; margin-left: 0.5rem}";
+		*_outFile << "button {border: 1px solid #FFFFFF; color: #FFFFFF; background-color: #00000000; padding: 1em;width: 100px;height: 100%; margin: 0.5rem 0; margin-left: 0.5rem}";
+		*_outFile << "div {border: 1px solid #313131; box-sizing: border-box; margin:  0.5em 0;}";
 		*_outFile << "p {padding: 1em; margin: 0;}.log {border-color: #808080; color: #808080;}";
 		*_outFile << ".warn {border-color: #FFFF00; color: #FFFF00;}";
 		*_outFile << ".error {border-color: #FF0000; color: #FF0000;}";
-		*_outFile << ".voXXel {border-color: #80FFFF; color: #80FFFF}";
+		*_outFile << ".voXXel {border-color: #FFFFFF; color: #FFFFFF;}";
 		*_outFile << ".glfwError {border-color: #00FF00; color: #00FF00;}";
-		*_outFile << ".buttonDiv{border-color: #FF0000;color: #FFFFFF;}</style>"; // /CSS
+		*_outFile << ".buttonDiv{border-color: #FFFFFF;color: #FFFFFF;}</style>"; // /CSS
 		*_outFile << "<meta charset=\"UTF - 8\">"; // meta
 		*_outFile << "<meta name=\"viewport\" content=\"width = device - width, initial - scale = 1.0\">";
 		*_outFile << "<meta http-equiv=\"X - UA - Compatible\" content=\"ie = edge\">";
@@ -37,6 +38,7 @@ Console::Console(int debugMode, std::string fileName) {
 		*_outFile << "var tempButton = document.createElement(\"button\");\n";
 		*_outFile << "tempButton.id = buttonIDS[i];\n";
 		*_outFile << "tempButton.innerHTML = buttonIDS[i];\n";
+		//*_outFile << "tempButton.classList.add(buttonIDS[i])\n";
 		*_outFile << "tempButton.onclick = function() {\n";
 		*_outFile << "var elementsOfClass = document.getElementsByClassName(this.id);\n";
 		*_outFile << "var hide = true;\n";
@@ -62,7 +64,7 @@ Console::Console(int debugMode, std::string fileName) {
 
 
 	*_outFile << "<div class=\"voXXel\"><p>" << _getDT() << ": voXXel: Started voXXel logger!</p></div>";
-	std::cout << "\033[0;36m" << _getDT() << "voXXel: \033[0m" << "Started voXXel logger!" << "\n\n\n";
+	std::cout << "\033[0;0m" << _getDT() << "voXXel: \033[0m" << "Started voXXel logger!" << "\n\n\n";
 	_outFile->close();
 }
 Console::~Console() {
@@ -97,7 +99,7 @@ void Console::error(std::string msg) {
 void Console::engine(std::string msg) {
 	_outFile->open(_fileLoc, std::fstream::app);
 	*_outFile << "<div class=\"voXXel\"><p>" << _getDT() << ": voXXel: " << msg << "</p></div>";
-	std::cout << "\033[0;36m" << _getDT() << "voXXel: \033[0m" << msg << "\n\n";
+	std::cout << "\033[0;0m" << _getDT() << "voXXel: \033[0m" << msg << "\n\n";
 	_outFile->close();
 }
 void Console::err_callback(int error, const char* description) {

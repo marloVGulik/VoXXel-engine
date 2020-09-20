@@ -9,6 +9,7 @@ Engine::Engine(unsigned int w, unsigned int h, std::string title, bool fullscree
 	_fullscreen = fullscreen;
 	_windowWidth = w;
 	_windowHeight = h;
+	_title = title;
 
 
 	// time vars
@@ -53,6 +54,8 @@ Engine::Engine(unsigned int w, unsigned int h, std::string title, bool fullscree
 	}
 	glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
 
+	_scene = new Scene();
+
 	_console->engine("voXXel set up succesfully!");
 }
 
@@ -61,13 +64,16 @@ void Engine::update() {
 	_deltaTime = float(_currentTime - _oldTime);
 	_oldTime = _currentTime;
 	_currentTime = (float) glfwGetTime();
-	// Frame and FPS counting
-	_frame++;
-	_FPSEstimation += unsigned int(1 / _deltaTime);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
+
+	_scene->scenePollEvents(_deltaTime);
+	
+	// Frame and FPS counting
+	_frame++;
+	_FPSEstimation += unsigned int(1 / _deltaTime);
 
 	glfwSwapBuffers(_window);
 	glfwPollEvents();
@@ -80,6 +86,20 @@ float Engine::getDeltaTime() {
 }
 GLFWwindow* Engine::getWindow() {
 	return _window;
+}
+
+glm::vec2 Engine::getWindowDimensions() {
+	int width, height;
+	glfwGetWindowSize(_window, &width, &height);
+	return glm::vec2((float) width, (float) height);
+}
+
+Console* Engine::getConsole() {
+	return _console;
+}
+
+Scene* Engine::getScene() {
+	return _scene;
 }
 
 void Engine::shutdown() {

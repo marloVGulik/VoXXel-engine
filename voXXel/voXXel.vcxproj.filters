@@ -19,6 +19,18 @@
     <Filter Include="Header Files\Tools">
       <UniqueIdentifier>{12998119-6e26-42f8-8aaf-b5ada9b8479b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{7642ab76-6bbb-4f92-93cf-a87f7fe61867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{c9bdd319-02e6-4cd0-9541-d3f70fea26fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Types">
+      <UniqueIdentifier>{885cd883-ecb0-4154-882d-7284bbcb2d9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Types">
+      <UniqueIdentifier>{c0d4a78e-0a83-4363-8ef4-699472b265bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,6 +45,21 @@
     <ClCompile Include="Console.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\GameObjects\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="VoXXel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadShader.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes.h">
@@ -45,6 +72,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\GameObjects\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="VoXXel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadShader.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
   </ItemGroup>
