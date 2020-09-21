@@ -60,6 +60,12 @@
     <ClCompile Include="LoadShader.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\GameObjects\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshedGameObject.cpp">
+      <Filter>Source Files\GameObjects\Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes.h">
@@ -91,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="LoadShader.h">
       <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\GameObjects\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshedGameObject.h">
+      <Filter>Header Files\GameObjects\Types</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,10 @@
 #include "Includes.h"
 #include "Tests.h"
 #include "Engine.h"
+#include "MeshedGameObject.h"
+
 class VoXXel;
+class MeshedGameObject;
 
 int main() {
 	//runTests();
@@ -18,9 +21,11 @@ int main() {
 	};
 
 	unsigned short objCode = engine->getScene()->newElement();
-	GameObject* obj = engine->getScene()->getSceneMember(objCode);
-	obj->setNewBufferData(g_vertex_buffer_data);
-	obj->attachShaders("Data/Shaders/vertex.glsl", "Data/Shaders/fragment.glsl");
+	//obj->setNewBufferData(g_vertex_buffer_data);
+	//obj->attachShaders("Data/Shaders/vertex.glsl", "Data/Shaders/fragment.glsl");
+	engine->getScene()->getObjList()->data()[objCode] = MeshedGameObject();
+	engine->getScene()->getObjList()->data()[objCode]->setNewVertexBufferData(g_vertex_buffer_data);
+	engine->getScene()->getObjList()->data()[objCode]->attachShaders("Data/Shaders/vertex.glsl", "Data/Shaders/fragment.glsl");
 
 
 

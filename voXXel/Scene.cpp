@@ -19,8 +19,16 @@ GameObject* Scene::getSceneMember(unsigned short num) {
 	return &_gameObjects.data()[num];
 }
 
+std::vector<GameObject>* Scene::getObjList() {
+	return &_gameObjects;
+}
+
 unsigned short Scene::newElement() {
 	GameObject newObj;
 	_gameObjects.push_back(newObj);
-	return _gameObjects.size(); // TEMPORARY SOLUTION THIS IS A VERY BAD PRACTICE!!!!!!!
+	return unsigned short(_gameObjects.size() - 1); // TEMPORARY SOLUTION THIS IS A VERY BAD PRACTICE!!!!!!!
+}
+unsigned short Scene::newElement(GameObject obj) {
+	_gameObjects.push_back(newObj);
+	return unsigned short(_gameObjects.size() - 1); // TEMPORARY SOLUTION THIS IS A VERY BAD PRACTICE!!!!!!!
 }
