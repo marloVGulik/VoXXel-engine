@@ -6,7 +6,7 @@ class Camera;
 
 class Scene {
 private:
-	std::vector<GameObject> _gameObjects;
+	std::vector<GameObject*> _gameObjects;
 	Camera* _camera;
 
 public:
@@ -14,8 +14,11 @@ public:
 	~Scene();
 
 	void scenePollEvents(float dt);
-	GameObject* getSceneMember(unsigned short num);
 
+	GameObject* getSceneMember(unsigned short num);
+	std::vector<GameObject*>* getObjList();
+	
 	unsigned short newElement();
+	void newElement(GameObject* obj);
 };
 
