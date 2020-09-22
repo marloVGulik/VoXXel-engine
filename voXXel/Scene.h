@@ -17,6 +17,7 @@ public:
 
 	GameObject* getSceneMember(unsigned short num);
 	std::vector<GameObject*>* getObjList();
+	glm::mat4 getPV();
 	
 	unsigned short newElement();
 	void newElement(GameObject* obj);

@@ -67,7 +67,7 @@ void Engine::update() {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
+	//glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
 
 	_scene->scenePollEvents(_deltaTime);
 	
@@ -77,7 +77,6 @@ void Engine::update() {
 
 	glfwSwapBuffers(_window);
 	glfwPollEvents();
-
 }
 
 // Getters

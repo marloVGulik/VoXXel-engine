@@ -21,6 +21,10 @@ glm::mat4 Camera::getView() {
 	return _view;
 }
 
+glm::mat4 Camera::getProjection() {
+	return _projection;
+}
+
 void Camera::pollEvents(float dt) {
 	Engine* engine = VoXXel::getMainEngine(); // Get engine
 	GLFWwindow* window = engine->getWindow(); // Get window
@@ -55,8 +59,8 @@ void Camera::pollEvents(float dt) {
 		_myPosition + _myRotation,
 		up
 	);
-	//_projection = glm::perspective(glm::radians(_FoV), wSize.x / wSize.y, _clipDistance, _drawDistance);
-	//glfwSetCursorPos(window, wSize.x / 2, wSize.y / 2);
+	_projection = glm::perspective(glm::radians(_FoV), wSize.x / wSize.y, _clipDistance, _drawDistance);
+	glfwSetCursorPos(window, wSize.x / 2, wSize.y / 2);
 
 	// Handle key input to move camera
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {

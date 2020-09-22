@@ -3,8 +3,6 @@
 
 class GameObject {
 protected:
-	bool shown = false;
-
 	glm::vec3 _myPosition;
 	glm::vec3 _myRotation;
 	glm::vec3 _myScale;
@@ -32,7 +30,6 @@ public:
 
 	// Testing stuff
 	virtual void genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
-	virtual void setNewVertexBufferData(std::vector<glm::vec3> locs);
-	virtual void attachShaders(std::string vFilename, std::string fFileName);
+	virtual void newMesh(std::string loc);
 };
 
