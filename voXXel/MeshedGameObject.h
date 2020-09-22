@@ -9,6 +9,7 @@ protected:
 	Mesh* _mesh;
 public:
 	MeshedGameObject();
+	MeshedGameObject(std::string objFile);
 
 	void pollEvents(float dt);
 

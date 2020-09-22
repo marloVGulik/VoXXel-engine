@@ -15,8 +15,8 @@ public:
 	GameObject(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
 	//~GameObject();
 
-	void behaviour(float dt);
-	void pollEvents(float dt);
+	virtual void behaviour(float dt);
+	virtual void pollEvents(float dt);
 
 	// Setters
 	void setMyPosition(glm::vec3 pos);
@@ -28,5 +28,11 @@ public:
 	glm::vec3 getMyPosition();
 	glm::vec3 getMyRotation();
 	glm::vec3 getMyScale();
+
+
+	// Testing stuff
+	virtual void genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
+	virtual void setNewVertexBufferData(std::vector<glm::vec3> locs);
+	virtual void attachShaders(std::string vFilename, std::string fFileName);
 };
 

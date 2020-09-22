@@ -8,6 +8,14 @@ MeshedGameObject::MeshedGameObject() {
 	_mesh = new Mesh();
 }
 
+MeshedGameObject::MeshedGameObject(std::string objFile) {
+	_myPosition = glm::vec3(0.0f);
+	_myRotation = glm::vec3(0.0f);
+	_myScale = glm::vec3(1.0f);
+
+	_mesh = new Mesh();
+}
+
 void MeshedGameObject::pollEvents(float dt) {
 	_mesh->pollEvents(dt, _myPosition, _myRotation, _myScale);
 }

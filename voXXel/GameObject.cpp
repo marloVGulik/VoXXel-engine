@@ -47,3 +47,15 @@ glm::vec3 GameObject::getMyRotation() {
 glm::vec3 GameObject::getMyScale() {
 	return _myScale;
 }
+
+void GameObject::genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale)
+{
+}
+
+void GameObject::setNewVertexBufferData(std::vector<glm::vec3> locs)
+{
+}
+
+void GameObject::attachShaders(std::string vFilename, std::string fFileName)
+{
+}
