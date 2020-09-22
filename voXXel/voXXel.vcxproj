@@ -146,10 +146,13 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Indexer.cpp" />
     <ClCompile Include="LoadShader.cpp" />
+    <ClCompile Include="loadBMP.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshedGameObject.cpp" />
+    <ClCompile Include="OBJloader.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Tests.cpp" />
     <ClCompile Include="VoXXel.cpp" />
@@ -161,9 +164,12 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="Includes.h" />
+    <ClInclude Include="Indexer.h" />
+    <ClInclude Include="loadBMP.h" />
     <ClInclude Include="LoadShader.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshedGameObject.h" />
+    <ClInclude Include="OBJloader.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="VoXXel.h" />

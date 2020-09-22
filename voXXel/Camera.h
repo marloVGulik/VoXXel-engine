@@ -27,6 +27,7 @@ public:
 
 	// Getters
 	glm::mat4 getView();
+	glm::mat4 getProjection();
 
 	void pollEvents(float dt);
 };

@@ -4,8 +4,6 @@ MeshedGameObject::MeshedGameObject() {
 	_myPosition = glm::vec3(0.0f);
 	_myRotation = glm::vec3(0.0f);
 	_myScale = glm::vec3(1.0f);
-
-	_mesh = new Mesh();
 }
 
 MeshedGameObject::MeshedGameObject(std::string objFile) {
@@ -13,21 +11,21 @@ MeshedGameObject::MeshedGameObject(std::string objFile) {
 	_myRotation = glm::vec3(0.0f);
 	_myScale = glm::vec3(1.0f);
 
-	_mesh = new Mesh();
+	_meshes.push_back(new Mesh(objFile));
 }
 
 void MeshedGameObject::pollEvents(float dt) {
-	_mesh->pollEvents(dt, _myPosition, _myRotation, _myScale);
+	for (unsigned short i = 0; i < _meshes.size(); i++) {
+		_meshes[i]->pollEvents(dt, _myPosition, _myRotation, _myScale);
+	}
 }
 
 void MeshedGameObject::genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale) {
-	_mesh->genMyModelMatrix(pos, rot, scale);
+	for (unsigned short i = 0; i < _meshes.size(); i++) {
+		_meshes[i]->genMyModelMatrix(pos, rot, scale);
+	}
 }
 
-void MeshedGameObject::setNewVertexBufferData(std::vector<glm::vec3> locs) {
-	_mesh->setNewVertexBufferData(locs);
-}
-
-void MeshedGameObject::attachShaders(std::string vFilename, std::string fFileName) {
-	_mesh->attachShaders(vFilename, fFileName);
+void MeshedGameObject::newMesh(std::string loc) {
+	_meshes.push_back(new Mesh(loc));
 }

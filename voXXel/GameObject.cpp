@@ -17,10 +17,6 @@ void GameObject::behaviour(float dt) {
 }
 
 void GameObject::pollEvents(float dt) {
-	if (!shown) {
-		std::cout << "Oh\n";
-		return;
-	}
 
 }
 
@@ -52,10 +48,6 @@ void GameObject::genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale)
 {
 }
 
-void GameObject::setNewVertexBufferData(std::vector<glm::vec3> locs)
-{
-}
+void GameObject::newMesh(std::string loc) {
 
-void GameObject::attachShaders(std::string vFilename, std::string fFileName)
-{
 }

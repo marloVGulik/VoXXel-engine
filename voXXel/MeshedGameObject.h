@@ -6,7 +6,7 @@
 
 class MeshedGameObject : public GameObject {
 protected:
-	Mesh* _mesh;
+	std::vector<Mesh*> _meshes;
 public:
 	MeshedGameObject();
 	MeshedGameObject(std::string objFile);
@@ -14,7 +14,9 @@ public:
 	void pollEvents(float dt);
 
 	virtual void genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
-	virtual void setNewVertexBufferData(std::vector<glm::vec3> locs);
-	virtual void attachShaders(std::string vFilename, std::string fFileName);
+	virtual void newMesh(std::string loc);
+
+	//virtual void setNewVertexBufferData(std::vector<glm::vec3> locs);
+	//virtual void attachShaders(std::string vFilename, std::string fFileName);
 };
 

@@ -31,6 +31,18 @@
     <Filter Include="Source Files\GameObjects\Types">
       <UniqueIdentifier>{c0d4a78e-0a83-4363-8ef4-699472b265bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Tools\objLoader">
+      <UniqueIdentifier>{021b1c91-6a64-4e8f-ac14-6423a56b31dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools\objLoader">
+      <UniqueIdentifier>{4e2dd45e-1158-43ad-9dcc-9da22670ad43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools\imgLoader">
+      <UniqueIdentifier>{0ca3be2c-5d09-4c2e-a9fe-8d86f9e8b42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools\imgLoader">
+      <UniqueIdentifier>{38a54fcd-6902-4645-9ad5-fac5b4834db3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -65,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="MeshedGameObject.cpp">
       <Filter>Source Files\GameObjects\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="OBJloader.cpp">
+      <Filter>Source Files\Tools\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Indexer.cpp">
+      <Filter>Source Files\Tools\objLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="loadBMP.cpp">
+      <Filter>Source Files\Tools\imgLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +124,15 @@
     </ClInclude>
     <ClInclude Include="MeshedGameObject.h">
       <Filter>Header Files\GameObjects\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJloader.h">
+      <Filter>Header Files\Tools\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Indexer.h">
+      <Filter>Header Files\Tools\objLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="loadBMP.h">
+      <Filter>Header Files\Tools\imgLoader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

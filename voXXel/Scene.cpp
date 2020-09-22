@@ -23,6 +23,10 @@ std::vector<GameObject*>* Scene::getObjList() {
 	return &_gameObjects;
 }
 
+glm::mat4 Scene::getPV() {
+	return _camera->getProjection() * _camera->getView();
+}
+
 unsigned short Scene::newElement() {
 	GameObject* ptr = new GameObject();
 	_gameObjects.push_back(ptr);
