@@ -49,6 +49,9 @@ public:
 	Console* getConsole();
 	Scene* getScene();
 
+	// Setters
+	void setScene();
+
 	void shutdown();
 };
 

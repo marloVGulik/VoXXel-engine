@@ -14,6 +14,9 @@ MeshedGameObject::MeshedGameObject(std::string objFile) {
 	_meshes.push_back(new Mesh(objFile));
 }
 
+void MeshedGameObject::behaviour(float dt) {
+	_myRotation += glm::vec3(0.0f, 10.0f * dt, 0.0f);
+}
 void MeshedGameObject::pollEvents(float dt) {
 	for (unsigned short i = 0; i < _meshes.size(); i++) {
 		_meshes[i]->pollEvents(dt, _myPosition, _myRotation, _myScale);

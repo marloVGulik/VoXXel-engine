@@ -86,7 +86,14 @@ unsigned int loadOBJfile(std::string path, std::vector<glm::vec3>& outVert, std:
 		tempOutNormal.push_back(normal);
 	}
 
+	// Normal end
 	indexObj(tempOutVert, tempOutUV, tempOutNormal, outVBO, outVert, outUV, outNormal);
-
 	return (unsigned int)outVBO.size();
+
+	// My end
+	//outVert = tempOutVert;
+	//outUV = tempOutUV;
+	//outNormal = tempOutNormal;
+
+	//return tempOutVert.size();
 }

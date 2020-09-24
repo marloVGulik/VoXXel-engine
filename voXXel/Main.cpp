@@ -12,6 +12,7 @@ int main() {
 
 	Engine* engine = new Engine(800, 600, "voXXel engine [TESTING]", false);
 	if (!VoXXel::setMainEngine(engine)) return 1;
+	engine->setScene();
 
 
 	//std::vector<glm::vec3> g_vertex_buffer_data = {
@@ -21,7 +22,11 @@ int main() {
 	//};
 
 	GameObject* obj = new MeshedGameObject("testMesh");
+	obj->setMyPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+	obj->setMyRotation(glm::vec3(0.0f, 0.0f, 50.0f));
 	engine->getScene()->newElement(obj);
+
+	GameObject* obj2 = &engine->getScene()->getSceneMember(0);
 
 	//std::vector<glm::vec3> g_vertex_buffer_data2 = {
 	//	glm::vec3(1.0f, 1.0f, 0.0f),

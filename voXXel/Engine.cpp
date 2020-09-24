@@ -52,9 +52,12 @@ Engine::Engine(unsigned int w, unsigned int h, std::string title, bool fullscree
 	if (glewInit() != GLEW_OK) {
 		_console->error("GLEW NOT INITIATED!");
 	}
-	glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
 
-	_scene = new Scene();
+	// Make Z buffer work
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+
+	glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
 
 	_console->engine("voXXel set up succesfully!");
 }
@@ -69,7 +72,7 @@ void Engine::update() {
 
 	//glClearColor(0.16015625f, 0.16015625f, 0.16015625f, 1.0f);
 
-	_scene->scenePollEvents(_deltaTime);
+	if(_scene != nullptr) _scene->scenePollEvents(_deltaTime);
 	
 	// Frame and FPS counting
 	_frame++;
@@ -99,6 +102,10 @@ Console* Engine::getConsole() {
 
 Scene* Engine::getScene() {
 	return _scene;
+}
+
+void Engine::setScene() {
+	_scene = new Scene();
 }
 
 void Engine::shutdown() {
