@@ -20,7 +20,7 @@ Engine* VoXXel::getMainEngine() {
 
 void VoXXel::windowSizeChange(GLFWwindow* window, int width, int height) {
 	if (VoXXel::isMainEngineSet) {
-		VoXXel::getMainEngine()->getConsole()->warn("Window was resized!");
+		VoXXel::getMainEngine()->getConsole()->log("Window was resized!");
 		glViewport(0, 0, width, height);
 		mainEngine->update();
 	}

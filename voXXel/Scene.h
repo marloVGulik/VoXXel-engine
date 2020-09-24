@@ -15,8 +15,8 @@ public:
 
 	void scenePollEvents(float dt);
 
-	GameObject* getSceneMember(unsigned short num);
-	std::vector<GameObject*>* getObjList();
+	GameObject& getSceneMember(unsigned short num);
+	std::vector<GameObject*>& getObjList();
 	glm::mat4 getPV();
 	
 	unsigned short newElement();

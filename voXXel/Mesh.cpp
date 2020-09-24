@@ -5,9 +5,9 @@ void Mesh::newMesh(std::string fName) {
 }
 
 void Mesh::genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale) {
-	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), pos);
-	glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), 360.0f, rot);
-	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), scale);
+	glm::mat4 translationMatrix = glm::translate(pos);
+	glm::mat4 rotationMatrix = glm::rotate(glm::radians(0.0f), rot); // Working on translating into quaternations
+	glm::mat4 scalingMatrix = glm::scale(scale);
 
 	_myModel = translationMatrix * rotationMatrix * scalingMatrix;
 }
@@ -71,6 +71,8 @@ void Mesh::pollEvents(float dt, glm::vec3 pos, glm::vec3 rot, glm::vec3 scale) {
 		(void*)0
 	);
 
+	//glDrawArrays(GL_TRIANGLES, 0, _vertSize * 3);
+
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(2);
@@ -93,8 +95,6 @@ Mesh::Mesh(std::string fName) {
 	if (_vertSize == 0) {
 		VoXXel::getMainEngine()->getConsole()->error("OBJECT NOT FOUND: " + fName);
 	}
-	
-	_myTexture = loadBMP("Data/Meshes/" + fName + "/" + fName + ".bmp");
 	// Give texture to GLSL
 
 	if (glewInit() != GLEW_OK) {
@@ -114,6 +114,7 @@ Mesh::Mesh(std::string fName) {
 	glBindBuffer(GL_ARRAY_BUFFER, _myNormalBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(objNorm.data()[0]) * objNorm.size(), objNorm.data(), GL_STATIC_DRAW);
 
+	// We're not using a VBO in this one, I don't think it'll be necessary.
 	glGenBuffers(1, &_myVertexIndexBuffer);	// Index buffer
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _myVertexIndexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(objVBO.data()[0]) * objVBO.size(), objVBO.data(), GL_STATIC_DRAW);
@@ -123,6 +124,10 @@ Mesh::Mesh(std::string fName) {
 
 	// Getting uniform locations from shaders
 	_MVP = glGetUniformLocation(_myShaderProgramID, "MVP");
+
+	// Texture stuff
+	_myTexture = loadBMP("Data/Meshes/" + fName + "/" + fName + ".bmp");
+	_myTextureID = glGetUniformLocation(_myShaderProgramID, "tSampler");
 }
 
 Mesh::~Mesh() {

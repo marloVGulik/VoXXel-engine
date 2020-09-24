@@ -11,6 +11,7 @@ public:
 	MeshedGameObject();
 	MeshedGameObject(std::string objFile);
 
+	void behaviour(float dt);
 	void pollEvents(float dt);
 
 	virtual void genMyModelMatrix(glm::vec3 pos, glm::vec3 rot, glm::vec3 scale);
